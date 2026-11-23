@@ -61,6 +61,27 @@ GO
 
 
 
+CREATE TABLE [dbo].[mstSource](
+	[SourceId] [int] IDENTITY(1,1) NOT NULL,
+	[SourceName] [varchar](50) NULL,
+	[IsActive] [bit] NULL,
+	[CreatedAt] [datetime] NULL,
+	[EncryptionKey] [nvarchar](50) NULL,
+ CONSTRAINT [PK_mstSource] PRIMARY KEY CLUSTERED 
+(
+	[SourceId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+select * from mstSource where SourceName = ''
+
+insert into mstSource(SourceName,IsActive,CreatedAt,EncryptionKey)
+Values('BAWC',1 , GETDATE() , 'R8v#2Kp!9xL@4mQ7zT$6wN1cY5bH3fD9')
+
+
 
 
 
